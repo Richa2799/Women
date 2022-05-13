@@ -10,12 +10,10 @@ public class CandidateSchemes {
 	int id;
 	String status;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id")
+	@ManyToOne
 	Schemes schemes;
 	
-	@OneToOne(cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "id")
+	@OneToOne
 	Candidate candidate;
 
 	public int getId() {
