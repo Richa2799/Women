@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.app.model.Schemes;
 
-public interface SchemesRepository extends JpaRepository<Schemes,Integer>{
+public interface SchemesRepository extends JpaRepository<Schemes,Long>{
 
 //	public List<Product> findAll();
 	
