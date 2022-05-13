@@ -22,7 +22,7 @@ public class AdminService {
 		return ar.findAll();
 	}
 	
-	public Optional<Admin> findById(Long adminId){
+	public Optional<Admin> findById(int adminId){
 		return ar.findById(adminId);
 	}
 	
