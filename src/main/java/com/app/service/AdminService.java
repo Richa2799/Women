@@ -22,11 +22,9 @@ public class AdminService {
 		return ar.findAll();
 	}
 	
-<<<<<<< HEAD
+
 	public Optional<Admin> findById(Long adminId){
-=======
-	public Optional<Admin> findById(int adminId){
->>>>>>> branch 'main' of https://github.com/prmane03/WomenEmpowerment
+
 		return ar.findById(adminId);
 	}
 	

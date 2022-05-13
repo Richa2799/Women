@@ -1,27 +1,5 @@
 package com.app.controller;
 
-<<<<<<< HEAD
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-
-
-import com.app.model.NGO;
-import com.app.service.NGOService;
-
-public class NGOController {
-	
-	 @Autowired
-		NGOService ns;
-	    
-	    @GetMapping("/ngo")
-	    public List<NGO> ngolist() {
-	        return ns.ngolist();
-	    }
-
-}
-=======
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -101,5 +79,3 @@ public class NGOController {
 	    }
 	
 }
-
->>>>>>> branch 'main' of https://github.com/prmane03/WomenEmpowerment
