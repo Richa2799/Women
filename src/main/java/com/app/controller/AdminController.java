@@ -23,7 +23,7 @@ import com.app.exception.ResourceNotFoundException;
 import com.app.model.Admin;
 import com.app.service.AdminService;
 
-//ADmin controller
+// new admin comment
 @RestController
 public class AdminController {
 
