@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.app.model.NGO;
 import com.app.repo.NGORepository;
 
@@ -22,7 +23,7 @@ public class NGOService {
 		return nr.findAll();
 	}
 	
-	public Optional<NGO> findById(int ngoNid){
+	public Optional<NGO> findById(Long ngoNid){
 		return nr.findById(ngoNid);
 	}
 	
@@ -33,6 +34,4 @@ public class NGOService {
 	public void delete(NGO ngo) {
 		nr.delete(ngo);
 	}
-
-	
 }

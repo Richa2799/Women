@@ -7,6 +7,6 @@ import com.app.model.NGO;
 
 
 @Repository
-public interface NGORepository extends JpaRepository<NGO,Integer>{
 
+public interface NGORepository extends JpaRepository<NGO, Long>{
 }

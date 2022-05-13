@@ -23,6 +23,8 @@ import com.app.exception.ResourceNotFoundException;
 import com.app.model.Admin;
 import com.app.service.AdminService;
 
+
+// new admin comment
 @RestController
 public class AdminController {
 
@@ -35,7 +37,7 @@ public class AdminController {
 	    }
 
 	    @GetMapping("/admins/{id}")
-	    public ResponseEntity<Optional<Admin>> getAdminById(@PathVariable(value = "id") Long adminId)
+	    public ResponseEntity<Optional<Admin>> getAdminById(@PathVariable(value = "id") int adminId)
 	        throws ResourceNotFoundException {
 	    	Optional<Admin> admin = adminService.findById(adminId);
 	        return ResponseEntity.ok().body(admin);
@@ -47,12 +49,12 @@ public class AdminController {
 	    }
 
 	    @PutMapping("/admins/{id}")
-	    public ResponseEntity<Admin> updateAdmin(@PathVariable(value = "id") Long adminsId,@Valid @RequestBody Admin adminDetails) throws ResourceNotFoundException {
+	    public ResponseEntity<Admin> updateAdmin(@PathVariable(value = "id") int adminsId,@Valid @RequestBody Admin adminDetails) throws ResourceNotFoundException {
 	    	Admin admin = adminService.findById(adminsId)
 	        .orElseThrow(() -> new ResourceNotFoundException("admin not found for this id :: " + adminsId));
 
 	        
-	    	admin.setId(adminDetails.getId());
+//	    	admin.setId(adminDetails.getId());
 	    	admin.setName(adminDetails.getName());
 	    	admin.setEmail(adminDetails.getEmail());
 	    	admin.setPassword(adminDetails.getPassword());
@@ -61,7 +63,8 @@ public class AdminController {
 	    }
 
 	    @DeleteMapping("/admins/{id}")
-	    public Map<String, Boolean> deleteAdmin(@PathVariable(value = "id") Long adminId)throws ResourceNotFoundException {
+	    public Map<String, Boolean> deleteAdmin(@PathVariable(value = "id") int adminId)
+	         throws ResourceNotFoundException {
 	    	Admin admin = adminService.findById(adminId)
 	       .orElseThrow(() -> new ResourceNotFoundException("Admin not found for this id :: " + adminId));
 

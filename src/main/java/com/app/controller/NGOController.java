@@ -1,16 +1,6 @@
 package com.app.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-
-
-import com.app.model.NGO;
-import com.app.service.NGOService;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.validation.Valid;
 
@@ -42,7 +32,7 @@ public class NGOController {
 	    }
 
 	    @GetMapping("/ngo/{nid}")
-	    public ResponseEntity<NGO> getNGOById(@PathVariable(value = "nid") int ngoNid)
+	    public ResponseEntity<NGO> getNGOById(@PathVariable(value = "nid") Long ngoNid)
 	        throws ResourceNotFoundException {
 	    	NGO ngo = ngoService.findById(ngoNid)
 	          .orElseThrow(() -> new ResourceNotFoundException("ngo not found for this id :: " + ngoNid));
@@ -55,7 +45,7 @@ public class NGOController {
 	    }
 
 	    @PutMapping("/ngo/{nid}")
-	    public ResponseEntity<NGO> updateNGO(@PathVariable(value = "nid") int ngoNid,
+	    public ResponseEntity<NGO> updateNGO(@PathVariable(value = "nid") Long ngoNid,
 	         @Valid @RequestBody NGO ngoDetails) throws ResourceNotFoundException {
 	    	NGO ngo = ngoService.findById(ngoNid)
 	        .orElseThrow(() -> new ResourceNotFoundException("ngo not found for this id :: " +ngoNid));
@@ -75,7 +65,7 @@ public class NGOController {
 	    }
 
 	    @DeleteMapping("/ngo/{nid}")
-	    public Map<String, Boolean> deleteNGO(@PathVariable(value = "nid") int ngoNid)
+	    public Map<String, Boolean> deleteNGO(@PathVariable(value = "nid") Long ngoNid)
 	         throws ResourceNotFoundException {
 	    	NGO ngo = ngoService.findById(ngoNid)
 	       .orElseThrow(() -> new ResourceNotFoundException("ngo not found for this id :: " + ngoNid));
