@@ -34,6 +34,4 @@ public class NGOService {
 	public void delete(NGO ngo) {
 		nr.delete(ngo);
 	}
-
-	
 }
