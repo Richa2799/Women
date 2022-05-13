@@ -1,6 +1,5 @@
 package com.app.controller;
 
-<<<<<<< HEAD
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,19 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.app.model.NGO;
 import com.app.service.NGOService;
-
-public class NGOController {
-	
-	 @Autowired
-		NGOService ns;
-	    
-	    @GetMapping("/ngo")
-	    public List<NGO> ngolist() {
-	        return ns.ngolist();
-	    }
-
-}
-=======
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -56,7 +42,7 @@ public class NGOController {
 	    }
 
 	    @GetMapping("/ngo/{nid}")
-	    public ResponseEntity<NGO> getNGOById(@PathVariable(value = "nid") Long ngoNid)
+	    public ResponseEntity<NGO> getNGOById(@PathVariable(value = "nid") int ngoNid)
 	        throws ResourceNotFoundException {
 	    	NGO ngo = ngoService.findById(ngoNid)
 	          .orElseThrow(() -> new ResourceNotFoundException("ngo not found for this id :: " + ngoNid));
@@ -69,7 +55,7 @@ public class NGOController {
 	    }
 
 	    @PutMapping("/ngo/{nid}")
-	    public ResponseEntity<NGO> updateNGO(@PathVariable(value = "nid") Long ngoNid,
+	    public ResponseEntity<NGO> updateNGO(@PathVariable(value = "nid") int ngoNid,
 	         @Valid @RequestBody NGO ngoDetails) throws ResourceNotFoundException {
 	    	NGO ngo = ngoService.findById(ngoNid)
 	        .orElseThrow(() -> new ResourceNotFoundException("ngo not found for this id :: " +ngoNid));
@@ -89,7 +75,7 @@ public class NGOController {
 	    }
 
 	    @DeleteMapping("/ngo/{nid}")
-	    public Map<String, Boolean> deleteNGO(@PathVariable(value = "nid") Long ngoNid)
+	    public Map<String, Boolean> deleteNGO(@PathVariable(value = "nid") int ngoNid)
 	         throws ResourceNotFoundException {
 	    	NGO ngo = ngoService.findById(ngoNid)
 	       .orElseThrow(() -> new ResourceNotFoundException("ngo not found for this id :: " + ngoNid));
@@ -101,5 +87,3 @@ public class NGOController {
 	    }
 	
 }
-
->>>>>>> branch 'main' of https://github.com/prmane03/WomenEmpowerment

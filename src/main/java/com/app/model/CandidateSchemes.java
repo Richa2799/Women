@@ -1,7 +1,7 @@
 package com.app.model;
 
 import javax.persistence.*;
-
+//comment
 @Entity
 @Table(name="candidateschemes")
 public class CandidateSchemes {
