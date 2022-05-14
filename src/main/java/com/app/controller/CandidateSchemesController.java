@@ -57,17 +57,17 @@ public class CandidateSchemesController {
 	    	candidateschemes.setStatus(candidateschemesDetails.getStatus());
 	    	candidateschemes.setSchemes(candidateschemesDetails.getSchemes());
 	    	candidateschemes.setCandidate(candidateschemesDetails.getCandidate());
-	        final CandidateSchemes updateAdmin = candidateSchemesService.save(candidateschemes);
-	        return ResponseEntity.ok(updateAdmin);
+	        final CandidateSchemes updateCandidateSchemes = candidateSchemesService.save(candidateschemes);
+	        return ResponseEntity.ok(updateCandidateSchemes);
 	    }
 
 	    @DeleteMapping("/candidateschemes/{id}")
 	    public Map<String, Boolean> deleteCandidatesSchemes(@PathVariable(value = "id") Long candidateschemesId)
 	         throws ResourceNotFoundException {
-	    	CandidateSchemes candidate =candidateSchemesService.findById(candidateschemesId)
+	    	CandidateSchemes cc =candidateSchemesService.findById(candidateschemesId)
 	       .orElseThrow(() -> new ResourceNotFoundException("CandidateSchemes not found for this id :: " + candidateschemesId));
 
-	    	candidateSchemesService.delete(candidate);
+	    	candidateSchemesService.delete(cc);
 	        Map<String, Boolean> response = new HashMap<>();
 	        response.put("deleted", Boolean.TRUE);
 	        return response;
