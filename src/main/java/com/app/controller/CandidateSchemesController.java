@@ -28,46 +28,46 @@ import com.app.service.CandidateSchemesService;
 public class CandidateSchemesController {
 
 	 @Autowired
-	 private CandidateSchemesService canidateschemesService;
+	 private CandidateSchemesService candidateSchemesService;
 
 	    @GetMapping("/candidateschemes")
 	    public List<CandidateSchemes> getAllCandidateSchemes() {
-	        return CandidateSchemesService.findAllCandidateSchemes();
+	        return candidateSchemesService.CandidateSchemesList();
 	    }
 
 	    @GetMapping("/candidateschemes/{id}")
 	    public ResponseEntity<Optional<CandidateSchemes>> getCandidateSchemesById(@PathVariable(value = "id") Long candidateschemesId)
 	        throws ResourceNotFoundException {
-	    	Optional<CandidateSchemes> candidateschemes = candidateschemesService.findById(candidateschemesId);
+	    	Optional<CandidateSchemes> candidateschemes = candidateSchemesService.findById(candidateschemesId);
 	        return ResponseEntity.ok().body(candidateschemes);
 	    }
 	    
 	    @PostMapping("/candidateschemes")
 	    public CandidateSchemes createCandidateSchemes(@Valid @RequestBody CandidateSchemes candidateschemes) {
-	        return candidateschemesService.save(candidateschemes);
+	        return candidateSchemesService.save(candidateschemes);
 	    }
 
 	    @PutMapping("/candidateschemes/{id}")
 	    public ResponseEntity<CandidateSchemes> updateCandidateSchemes(@PathVariable(value = "id") Long candidateschemesId,@Valid @RequestBody CandidateSchemes candidateschemesDetails) throws ResourceNotFoundException {
-	    	CandidateSchemes candidateschemes = candidateschemesService.findById(candidateschemesId)
+	    	CandidateSchemes candidateschemes = candidateSchemesService.findById(candidateschemesId)
 	        .orElseThrow(() -> new ResourceNotFoundException("CandidateSchemes not found for this id :: " + candidateschemesId));
 
 	        
 	    	candidateschemes.setId(candidateschemesDetails.getId());
 	    	candidateschemes.setStatus(candidateschemesDetails.getStatus());
-	    	candidateschemes.setEmail(candidateschemesDetails.getEmail());
-	    	candidateschemes.setPassword(candidateschemesDetails.getPassword());
-	        final CandidateSchemes updateAdmin = candidateschemesService.save(candidateschemes);
+	    	candidateschemes.setSchemes(candidateschemesDetails.getSchemes());
+	    	candidateschemes.setCandidate(candidateschemesDetails.getCandidate());
+	        final CandidateSchemes updateAdmin = candidateSchemesService.save(candidateschemes);
 	        return ResponseEntity.ok(updateAdmin);
 	    }
 
 	    @DeleteMapping("/candidateschemes/{id}")
 	    public Map<String, Boolean> deleteCandidatesSchemes(@PathVariable(value = "id") Long candidateschemesId)
 	         throws ResourceNotFoundException {
-	    	CandidateSchemes admin =candidateschemesService.findById(candidateschemesId)
+	    	CandidateSchemes candidate =candidateSchemesService.findById(candidateschemesId)
 	       .orElseThrow(() -> new ResourceNotFoundException("CandidateSchemes not found for this id :: " + candidateschemesId));
 
-	    	CandidateSchemesService.delete(candidateschemes);
+	    	candidateSchemesService.delete(candidate);
 	        Map<String, Boolean> response = new HashMap<>();
 	        response.put("deleted", Boolean.TRUE);
 	        return response;

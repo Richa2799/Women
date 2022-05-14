@@ -7,7 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
 
 
 @Entity
@@ -39,6 +42,18 @@ public class Candidate {
 	String incomeProof;
 	String adharPhoto;
 	String highestQualificationProof;
+	
+	@ManyToOne
+	Hostel hostel;
+	
+	public Hostel getHostel() {
+		return hostel;
+	}
+
+	public void setHostel(Hostel hostel) {
+		this.hostel = hostel;
+	}
+
 	public Candidate() {
 		super();
 		// TODO Auto-generated constructor stub

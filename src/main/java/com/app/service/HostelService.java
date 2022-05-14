@@ -1,6 +1,7 @@
 package com.app.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -18,5 +19,15 @@ HostelRepository hr;
 
 public List<Hostel>HostelList(){
 	return hr.findAll();
+}
+public Optional<Hostel> findById(Long hostelId){
+	return hr.findById(hostelId);
+}
+
+public Hostel save(Hostel hostel) {
+	return hr.save(hostel);
+}
+public void delete(Hostel hostel) {
+	hr.delete(hostel);
 }
 }

@@ -7,22 +7,20 @@ import javax.persistence.*;
 public class CandidateSchemes {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	int id;
+	Long id;
 	String status;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id")
+	@ManyToOne	
 	Schemes schemes;
 	
-	@OneToOne(cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "id")
+	@ManyToOne
 	Candidate candidate;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

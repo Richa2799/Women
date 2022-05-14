@@ -35,4 +35,7 @@ public class AdminService {
 	public void delete(Admin admin) {
 		ar.delete(admin);
 	}
+
+
+	
 }

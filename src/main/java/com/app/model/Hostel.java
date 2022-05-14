@@ -8,11 +8,11 @@ import javax.persistence.*;
 public class Hostel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	int id;
+	Long id;
 	String name;
 	String Location;
 	int Vacancy;
-	int mobileNumber;	
+	Long mobileNumber;	
 	String owner;	
 	int capacity;
 
@@ -20,7 +20,7 @@ public class Hostel {
 		super();
 	}
 
-	public Hostel(int id, String name, String location, int vacancy, int mobileNumber, String owner, int capacity) {
+	public Hostel(Long id, String name, String location, int vacancy, Long mobileNumber, String owner, int capacity) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -31,11 +31,11 @@ public class Hostel {
 		this.capacity = capacity;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -63,11 +63,11 @@ public class Hostel {
 		Vacancy = vacancy;
 	}
 
-	public int getMobileNumber() {
+	public Long getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(int mobileNumber) {
+	public void setMobileNumber(Long mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 
