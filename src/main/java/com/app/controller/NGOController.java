@@ -20,7 +20,6 @@ import com.app.model.NGO;
 import com.app.service.NGOService;
 
 @RestController
-@RequestMapping("N")
 public class NGOController {
 	
 	 @Autowired

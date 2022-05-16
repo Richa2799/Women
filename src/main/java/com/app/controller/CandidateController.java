@@ -25,7 +25,6 @@ import com.app.repo.CandidateRepository;
 import com.app.service.CandidateService;
 
 @RestController
-@RequestMapping("A")
 public class CandidateController {
 
 	 @Autowired

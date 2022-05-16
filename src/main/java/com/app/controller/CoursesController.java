@@ -24,13 +24,13 @@ import com.app.service.CoursesService;
 
 
 @RestController
-@RequestMapping("C")
+
 public class CoursesController {
 	
 	 @Autowired
 		private CoursesService coursesService;
 	    
-	 @GetMapping("/Courses")
+	 @GetMapping("/courses")
 	    public List<Courses> getAllCourses() {
 	        return coursesService.Courseslist();
 	    }

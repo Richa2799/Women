@@ -19,7 +19,7 @@ public class Candidate {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	int id;
+	Long id;
 	String fname;
 	String lname;
 	String email;
@@ -59,7 +59,7 @@ public class Candidate {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Candidate(int id, String fname, String lname, String email, String password, String nationality,
+	public Candidate(Long id, String fname, String lname, String email, String password, String nationality,
 			String country, String state, String city, String addressLine, String motherName, String fatherName,
 			Long mobile, int age, Date dob, Long adharNumber, String highestQualification, String maritalStatus,
 			Long income, boolean isWorking, String incomeProof, String adharPhoto, String highestQualificationProof) {
@@ -89,10 +89,10 @@ public class Candidate {
 		this.highestQualificationProof = highestQualificationProof;
 	}
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getFname() {
