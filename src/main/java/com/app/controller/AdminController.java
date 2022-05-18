@@ -25,7 +25,7 @@ import com.app.model.Admin;
 import com.app.service.AdminService;
 
 
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class AdminController {
 
@@ -57,7 +57,7 @@ public class AdminController {
 	    	boolean val = adminService.findByEmail(email);
 	        return val;
 	    }
-	    @CrossOrigin(origins = "http://localhost:4200")
+	    
 	    @PostMapping("/admins")
 	    public Admin createAdmin(@Valid @RequestBody Admin admin) {
 	        return adminService.save(admin);

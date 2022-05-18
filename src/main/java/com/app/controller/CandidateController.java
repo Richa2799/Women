@@ -27,6 +27,7 @@ import com.app.model.Candidate;
 import com.app.repo.CandidateRepository;
 import com.app.service.CandidateService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class CandidateController {
 
