@@ -27,6 +27,22 @@ public class AdminService {
 
 		return ar.findById(adminId);
 	}
+
+	public Optional<Admin> getByEmail(String email){
+		return Optional.of(ar.findByEmail(email));
+	}
+	
+	public boolean findByEmail(String email){
+		try {
+			Optional<Admin> admin = Optional.of(ar.findAll().stream()
+				    .filter(user -> user.getEmail().equalsIgnoreCase(email) || user.getEmail().equalsIgnoreCase(email))
+				    .findFirst().get());
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
+		
+	}
 	
 	public Admin save(Admin admin){
 		return ar.save(admin);

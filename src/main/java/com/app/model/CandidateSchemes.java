@@ -16,6 +16,19 @@ public class CandidateSchemes {
 	@ManyToOne
 	Candidate candidate;
 
+	public CandidateSchemes() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public CandidateSchemes(Long id, String status, Schemes schemes, Candidate candidate) {
+		super();
+		this.id = id;
+		this.status = status;
+		this.schemes = schemes;
+		this.candidate = candidate;
+	}
+
 	public Long getId() {
 		return id;
 	}

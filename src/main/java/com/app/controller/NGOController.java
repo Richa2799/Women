@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.exception.ResourceNotFoundException;
+import com.app.model.Admin;
 import com.app.model.NGO;
 import com.app.service.NGOService;
 
@@ -38,6 +40,20 @@ public class NGOController {
 	        return ResponseEntity.ok().body(ngo);
 	    }
 	    
+	    @GetMapping("/getNGOByEmail/{email}")
+	    public Optional<NGO> getNGOByEmail(@PathVariable(value = "email") String email)
+	        throws ResourceNotFoundException {
+	    	Optional<NGO> n = ngoService.getByEmail(email);
+	        return n;
+	    }
+	    
+	    @GetMapping("/ngoByEmail/{email}")
+	    public boolean getAdminByEmail(@PathVariable(value = "email") String email)
+	        throws ResourceNotFoundException {
+	    	boolean n = ngoService.findByEmail(email);
+	        return n;
+	    }
+	    @CrossOrigin(origins = "http://localhost:4200")
 	    @PostMapping("/ngo")
 	    public NGO createNGO(@Valid @RequestBody NGO ngo) {
 	        return ngoService.save(ngo);
@@ -50,6 +66,7 @@ public class NGOController {
 	        .orElseThrow(() -> new ResourceNotFoundException("ngo not found for this id :: " +ngoNid));
 	        
 	    	ngo.setName(ngoDetails.getName());
+	    	ngo.setStepStatus(ngoDetails.getStepStatus());
 	    	ngo.setEmail(ngoDetails.getEmail());
 	    	ngo.setPassword(ngoDetails.getPassword());
 	    	ngo.setCountry(ngoDetails.getCountry());

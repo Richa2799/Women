@@ -3,6 +3,7 @@ package com.app.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,8 +21,8 @@ public class Candidate {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	Long id;
-	String fname;
-	String lname;
+	String name;
+	@Column(unique=true)
 	String email;
 	String password;
 	String nationality;
@@ -59,14 +60,13 @@ public class Candidate {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Candidate(Long id, String fname, String lname, String email, String password, String nationality,
+	public Candidate(Long id, String name, String email, String password, String nationality,
 			String country, String state, String city, String addressLine, String motherName, String fatherName,
 			Long mobile, int age, Date dob, Long adharNumber, String highestQualification, String maritalStatus,
 			Long income, boolean isWorking, String incomeProof, String adharPhoto, String highestQualificationProof) {
 		super();
 		this.id = id;
-		this.fname = fname;
-		this.lname = lname;
+		this.name = name;
 		this.email = email;
 		this.password = password;
 		this.nationality = nationality;
@@ -95,17 +95,11 @@ public class Candidate {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getFname() {
-		return fname;
+	public String getName() {
+		return name;
 	}
-	public void setFname(String fname) {
-		this.fname = fname;
-	}
-	public String getLname() {
-		return lname;
-	}
-	public void setLname(String lname) {
-		this.lname = lname;
+	public void setName(String fname) {
+		this.name = fname;
 	}
 	public String getEmail() {
 		return email;

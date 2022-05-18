@@ -1,4 +1,5 @@
 package com.app.model;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +15,7 @@ public class NGO {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	int nid;
 	String name;
+	@Column(unique=true)
 	String email;
 	String password;
 	String country;
@@ -22,12 +24,20 @@ public class NGO {
 	String addressLine;
 	String director;
 	String type;
+	String StepStatus;
+	public String getStepStatus() {
+		return StepStatus;
+	}
+	public void setStepStatus(String stepStatus) {
+		StepStatus = stepStatus;
+	}
 	public NGO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public NGO(int nid, String name, String email, String password, String country, String state,
-			String city, String addressLine, String director, String type) {
+
+	public NGO(int nid, String name, String email, String password, String country, String state, String city,
+			String addressLine, String director, String type, String stepStatus) {
 		super();
 		this.nid = nid;
 		this.name = name;
@@ -39,6 +49,7 @@ public class NGO {
 		this.addressLine = addressLine;
 		this.director = director;
 		this.type = type;
+		StepStatus = stepStatus;
 	}
 	public int getNid() {
 		return nid;

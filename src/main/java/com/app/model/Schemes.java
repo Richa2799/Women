@@ -11,6 +11,18 @@ public class Schemes{
 	String name;
 	String criteria;
 	String benefits;
+	
+	public Schemes(int id, String name, String criteria, String benefits) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.criteria = criteria;
+		this.benefits = benefits;
+	}
+	public Schemes() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public int getId() {
 		return id;
 	}

@@ -15,7 +15,7 @@ public class Admin {
 	Long id;
 	@Column(name = "name", nullable = false)
 	String name;
-	@Column(name = "email", nullable = false)
+	@Column(unique=true)
 	String email;
 	@Column(name = "password", nullable = false)
 	String password;

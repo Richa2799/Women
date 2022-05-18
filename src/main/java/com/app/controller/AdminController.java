@@ -11,6 +11,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,6 +44,20 @@ public class AdminController {
 	        return ResponseEntity.ok().body(admin);
 	    }
 	    
+	    @GetMapping("/getAdminsByEmail/{email}")
+	    public Optional<Admin> getAdminByEmail(@PathVariable(value = "email") String email)
+	        throws ResourceNotFoundException {
+	    	Optional<Admin> admin = adminService.getByEmail(email);
+	        return admin;
+	    }
+	    
+	    @GetMapping("/adminsByEmail/{email}")
+	    public boolean findAdminByEmail(@PathVariable(value = "email") String email)
+	        throws ResourceNotFoundException {
+	    	boolean val = adminService.findByEmail(email);
+	        return val;
+	    }
+	    @CrossOrigin(origins = "http://localhost:4200")
 	    @PostMapping("/admins")
 	    public Admin createAdmin(@Valid @RequestBody Admin admin) {
 	        return adminService.save(admin);

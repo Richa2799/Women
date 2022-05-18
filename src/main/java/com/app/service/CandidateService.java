@@ -27,6 +27,22 @@ public class CandidateService {
 		return cr.findById(candidateId);
 	}
 	
+	public Optional<Candidate> getByEmail(String email){
+		return Optional.of(cr.findByEmail(email));
+	}
+	
+	public boolean findByEmail(String email){
+		try {
+			Optional<Candidate> candidate = Optional.of(cr.findAll().stream()
+				    .filter(user -> user.getEmail().equalsIgnoreCase(email) || user.getEmail().equalsIgnoreCase(email))
+				    .findFirst().get());
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
+		
+	}
+	
 	public Candidate save(Candidate candidate){
 		return cr.save(candidate);
 	}

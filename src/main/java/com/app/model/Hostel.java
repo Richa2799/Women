@@ -24,8 +24,8 @@ public class Hostel {
 		super();
 		this.id = id;
 		this.name = name;
-		Location = location;
-		Vacancy = vacancy;
+		this.Location = location;
+		this.Vacancy = vacancy;
 		this.mobileNumber = mobileNumber;
 		this.owner = owner;
 		this.capacity = capacity;
@@ -48,19 +48,19 @@ public class Hostel {
 	}
 
 	public String getLocation() {
-		return Location;
+		return this.Location;
 	}
 
 	public void setLocation(String location) {
-		Location = location;
+		this.Location = location;
 	}
 
 	public int getVacancy() {
-		return Vacancy;
+		return this.Vacancy;
 	}
 
 	public void setVacancy(int vacancy) {
-		Vacancy = vacancy;
+		this.Vacancy = vacancy;
 	}
 
 	public Long getMobileNumber() {
