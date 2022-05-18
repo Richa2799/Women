@@ -20,7 +20,7 @@ import com.app.exception.ResourceNotFoundException;
 import com.app.model.Admin;
 import com.app.model.NGO;
 import com.app.service.NGOService;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class NGOController {
 	
@@ -53,7 +53,7 @@ public class NGOController {
 	    	boolean n = ngoService.findByEmail(email);
 	        return n;
 	    }
-	    @CrossOrigin(origins = "http://localhost:4200")
+	    
 	    @PostMapping("/ngo")
 	    public NGO createNGO(@Valid @RequestBody NGO ngo) {
 	        return ngoService.save(ngo);
