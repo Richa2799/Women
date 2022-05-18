@@ -13,7 +13,7 @@ public class NGO {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	int nid;
+	Long nid;
 	String name;
 	@Column(unique=true)
 	String email;
@@ -36,7 +36,7 @@ public class NGO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public NGO(int nid, String name, String email, String password, String country, String state, String city,
+	public NGO(Long nid, String name, String email, String password, String country, String state, String city,
 			String addressLine, String director, String type, String stepStatus) {
 		super();
 		this.nid = nid;
@@ -51,10 +51,10 @@ public class NGO {
 		this.type = type;
 		StepStatus = stepStatus;
 	}
-	public int getNid() {
+	public Long getNid() {
 		return nid;
 	}
-	public void setNid(int nid) {
+	public void setNid(Long nid) {
 		this.nid = nid;
 	}
 	public String getName() {
